@@ -11,7 +11,7 @@ def tokenize(sentence: str):
 
 def load_documents(folder):
     documents={}
-    for name in os.listdir(folder): #parcurg numele fisierelor
+    for name in os.listdir(folder):
         path=folder+"/"+name
         with open(path, encoding="utf-8") as f:
             text=f.read()
@@ -51,10 +51,6 @@ def rank(documents, index, query):
     return sorted(scores, key=scores.get, reverse=True)
 
 def main():
-    
-#print(search_all(index, "domestic cat")) #da cat.txt pentru ca acolo se regasesc ambele cuvinte
-#print(search_all(index, "domestic italy")) #da set() pentru ca nu avem un fisier care sa le aiba pe amandoua
-#print(search_all(index, "xyz")) #da set() pentru ca nu exista nicaieri
 
     docs=load_documents("docs")
     index=build_index(docs)
